@@ -7,13 +7,13 @@ if (!(Test-Path -Path $sevenZipPath)) {
 }
 
 # Today's date to archive the backup
-$date = (Get-Date).ToString('MM-dd-yyyy')
+$date = (Get-Date).ToString('yyyy-MM-dd')
 
 # The local backup directory path
 $localBackupDirectory = "$env:USERPROFILE\Backup"
 
 # Define the output archive path and name
-$archiveName = "$localBackupDirectory\$date-backup.7z"  # Adjust output path and name as necessary
+$localArchive = "$localBackupDirectory\$date-backup.7z"  # Adjust output path and name as necessary
 
 # Check if the backup folder exists and if not, then create it
 if (!(Test-Path -PathType Container -Path $localBackupDirectory)) {
@@ -35,13 +35,13 @@ Write-Host "Backing up the following folders:`n"
 foreach ($folder in $foldersToArchive) {
     Write-Host $folder
 }
-Write-Host "`nBackup will be stored in the $archiveName archive locally`n"
+Write-Host "`nBackup will be stored in the $localArchive archive locally`n"
 
 # Build the command to create the 7zip archive
 $cmdArgs = @(
     "a",                    # 'a' means to add files to the archive
     "-p`"`"",               # Password protection
-    $archiveName            # Output archive file name
+    $localArchive            # Output archive file name
     ) + $foldersToArchive   # Add the folders to include
 
 # Run the 7z command with the specified arguments
@@ -64,7 +64,7 @@ if (!(Test-Path -PathType Container -Path $backupDirectory)) {
 }
 
 # Copy the archive to the external drive
-Copy-Item $archiveName -Destination "$backupDirectory\" 
+Copy-Item $localArchive -Destination "$backupDirectory\" 
 
 # Inform the user the backup archive was copied to the external drive
 Write-Host "`nThe backup archive was copied to $backupDirectory\`n"
