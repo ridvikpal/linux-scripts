@@ -39,7 +39,7 @@ Start-Process -FilePath $sevenZipPath -ArgumentList $cmdArgs -NoNewWindow -Wait
 # Ask the user for the external drive they want to backup the archive ot
 $driveLetter = (Read-Host -Prompt "Please enter the external drive letter to backup archive to (make sure the drive is mounted)").ToUpper()
 
-if (!(Test-Path -Path "${driveLetter}:\")) {
+if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
     throw "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted."
 }
 
@@ -47,7 +47,7 @@ if (!(Test-Path -Path "${driveLetter}:\")) {
 $backupDirectory = "${driveLetter}:\Backup"
 
 # Check if the backup folder exists and if not, then create it
-if (!(Test-Path -PathType Container $backupDirectory)) {
+if (!(Test-Path -PathType Container -Path $backupDirectory)) {
     New-Item -ItemType Directory -Path $backupDirectory
 }
 
