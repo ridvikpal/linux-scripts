@@ -16,14 +16,14 @@ if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
     throw "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted."
 }
 
+# Inform the user which folders are being backed up
 Write-Host "Backing up the following folders:`n"
-
 foreach ($folder in $foldersToArchive) {
     Write-Host $folder
 }
-
 Write-Host "`nStarting backup to D: (Backup) drive`n"
 
+# Backup each folder 1 by 1
 foreach ($folder in $foldersToArchive) {
     # Get the leaf (actual folder name not path) from the folder path
     $leafName = Split-Path -Path $folder -Leaf
