@@ -26,5 +26,19 @@ $cmdArgs = @(
 # Run the 7z command with the specified arguments
 Start-Process -FilePath $sevenZipPath -ArgumentList $cmdArgs -NoNewWindow -Wait
 
+# Ask the user for the external drive they want to backup the archive ot
+$driveLetter = (Read-Host -Prompt "External drive letter to backup archive to (make sure the drive is mounted)").ToUpper()
+
+# The backup directory on the external drive
+$backupDirectory = "${driveLetter}:\Backup"
+
+# Check if the backup folder exists and if not, then create it
+if (!(Test-Path -PathType Container $backupDirectory)) {
+    New-Item -ItemType Directory -Path $backupDirectory
+}
+
+# Copy the archive to the external drive
+Copy-Item $archiveName -Destination "$backupDirectory\" 
+
 # Wait for the user to click enter to exit
-Read-Host -Prompt "Press enter to exit..."
+Read-Host -Prompt "Press enter to exit"
