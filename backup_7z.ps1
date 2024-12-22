@@ -37,6 +37,7 @@ foreach ($folder in $foldersToArchive) {
 }
 Write-Host "`nBackup will be stored in the $localArchive archive locally`n"
 
+# Set the password file path
 $passwordFilePath = ".\password.txt"
 
 # If a file exists specifying a password, then use that password
@@ -56,6 +57,7 @@ $cmdArgs = @(
 # Run the 7z command with the specified arguments
 Start-Process -FilePath $sevenZipPath -ArgumentList $cmdArgs -NoNewWindow -Wait
 
+#Inform the user the backup was created locally
 Write-Host "`n The backup archive was created locally`n"
 
 # Ask the user for the external drive they want to backup the archive ot
