@@ -2,7 +2,7 @@
 $sevenZipPath = "C:\Program Files\7-Zip\7z.exe"
 
 # Check if 7zip is installed
-if (!(Test-Path -PathType Container $sevenZipPath)) {
+if (!(Test-Path -Path $sevenZipPath)) {
     throw "The 7zip executable was not found at $sevenZipPath. Please check your 7zip installation."
 }
 
