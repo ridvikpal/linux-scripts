@@ -20,18 +20,14 @@ if (!(Test-Path -PathType Container -Path $localBackupDirectory)) {
     New-Item -ItemType Directory -Path $localBackupDirectory
 }
 
-# Define the folders to include in the archive
-$foldersToArchive = @(
-    "$env:USERPROFILE\Desktop", 
-    "$env:USERPROFILE\Documents", 
-    "$env:USERPROFILE\Music", 
-    "$env:USERPROFILE\Videos", 
-    "$env:USERPROFILE\Pictures"
-    "$env:USERPROFILE\Downloads"
-)
+# The path of the txt file containing the folders to archive
+$foldersToArchivePath = ".\folders.txt"
+
+# Load the folders to backup from the txt file
+$foldersToArchive = Get-Content -Path $foldersToArchivePath
 
 # Inform the user which folders are being backed up
-Write-Host "Backing up the following folders:`n"
+Write-Host "`nBacking up the following folders:`n"
 foreach ($folder in $foldersToArchive) {
     Write-Host $folder
 }
