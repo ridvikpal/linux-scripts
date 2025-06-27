@@ -14,6 +14,14 @@ foreach ($folder in $foldersToBackup) {
 # Ask the user for the external drive they want to backup the archive ot
 $driveLetter = (Read-Host -Prompt "`nPlease enter the external drive's mounted filesystem letter to backup the folders to").ToUpper()
 
+# Inform the user that their data will be overwritten:
+$confirm = (Read-Host -Prompt "`------ NOTE YOUR $driveLetter`: DRIVE WILL BE OVERWRITTEN WITH THE SELECTED FOLDERS (y/n) ------")
+
+if ($confirm -ne "y") {
+    "`n Cancelling backup...`n"
+    exit 0
+}
+
 # Check if the external drive is mounted at that location
 if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
     throw "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted."
