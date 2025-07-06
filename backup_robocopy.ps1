@@ -24,7 +24,12 @@ if ($confirm -ne "y") {
 
 # Check if the external drive is mounted at that location
 if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
-    throw "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted."
+    # Inform the user of the error
+    Write-Error "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted, and then try again."
+
+    # Wait for the user to click enter to exit
+    Read-Host -Prompt "Press enter to exit"
+    throw
 }
 
 # Inform the user the backup is starting
