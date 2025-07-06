@@ -3,21 +3,12 @@ $sevenZipPath = "C:\Program Files\7-Zip\7z.exe"
 
 # Check if 7zip is installed
 if (!(Test-Path -Path $sevenZipPath)) {
-    throw "The 7zip executable was not found at $sevenZipPath. Please check your 7zip installation."
-}
-
-# Today's date to archive the backup
-$timestamp = (Get-Date).ToString("yyyy.MM.dd.T.HH.mm.ss")
-
-# The local backup directory path
-$localBackupDirectory = "$env:USERPROFILE\Backup"
-
-# Define the output archive path and name
-$localArchive = "$localBackupDirectory\backup.$timestamp.7z"  # Adjust output path and name as necessary
-
-# Check if the backup folder exists and if not, then create it
-if (!(Test-Path -PathType Container -Path $localBackupDirectory)) {
-    New-Item -ItemType Directory -Path $localBackupDirectory
+    # Inform the user of the error
+    Write-Error "The 7zip executable was not found at $sevenZipPath. Please check your 7zip installation and try again."
+    
+    # Wait for the user to click enter to exit
+    Read-Host -Prompt "Press enter to exit"
+    throw 
 }
 
 # The path of the txt file containing the folders to archive
@@ -27,11 +18,13 @@ $foldersToArchivePath = ".\folders.txt"
 $foldersToArchive = Get-Content -Path $foldersToArchivePath
 
 # Inform the user which folders are being backed up
-Write-Host "`nBacking up the following folders:`n"
+Write-Host "`nBacking up the following folders to a 7-zip archive:`n"
 foreach ($folder in $foldersToArchive) {
     Write-Host $folder
 }
-Write-Host "`nBackup will be stored in the $localArchive archive locally`n"
+
+# Add an extra space
+Write-Host "`n"
 
 # Set the password file path
 $passwordFilePath = ".\password.txt"
@@ -39,44 +32,55 @@ $passwordFilePath = ".\password.txt"
 # If a file exists specifying a password, then use that password
 if (!(Test-Path -Path $passwordFilePath)) {
     $password = "`"`""
-} else {
-    $password = Get-Content -Path $passwordFilePath -Raw
+    Write-Host "The backup archive will not be encrypted`n"    
 }
-
-# Build the command to create the 7zip archive
-$cmdArgs = @(
-    "a",                    # 'a' means to add files to the archive
-    "-p$password",               # Password protection
-    $localArchive            # Output archive file name
-    ) + $foldersToArchive   # Add the folders to include
-
-# Run the 7z command with the specified arguments
-Start-Process -FilePath $sevenZipPath -ArgumentList $cmdArgs -NoNewWindow -Wait
-
-#Inform the user the backup was created locally
-Write-Host "`n The backup archive was created locally`n"
+else {
+    $password = Get-Content -Path $passwordFilePath -Raw
+    Write-Host "The backup archive will be encrypted with the password defined in ${passwordFilePath}`n"
+}
 
 # Ask the user for the external drive they want to backup the archive ot
 $driveLetter = (Read-Host -Prompt "Please enter the external drive letter to backup archive to (make sure the drive is mounted)").ToUpper()
 
 # Check if the external drive is mounted at that location
 if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
-    throw "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted."
+    # Inform the user of the error
+    Write-Error "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted, and then try again."
+    
+    # Wait for the user to click enter to exit
+    Read-Host -Prompt "Press enter to exit"
+    throw
 }
 
+# Today's date to archive the backup
+$timestamp = (Get-Date).ToString("yyyy.MM.dd.T.HH.mm.ss")
+
+# Get the hostname of the machine
+$hostname = (hostname);
+
 # The backup directory on the external drive
-$backupDirectory = "${driveLetter}:\Backup"
+$backupDirectory = "${driveLetter}:\Backup\${hostname}"
 
 # Check if the backup folder exists on the external drive and if not, then create it
 if (!(Test-Path -PathType Container -Path $backupDirectory)) {
     New-Item -ItemType Directory -Path $backupDirectory
 }
 
-# Copy the archive to the external drive
-Copy-Item $localArchive -Destination "$backupDirectory\" 
+# Define the output archive path and name
+$backupArchive = "$backupDirectory\backup.$timestamp.7z"
+
+# Build the command to create the 7zip archive
+$cmdArgs = @(
+    "a",                    # 'a' means to add files to the archive
+    "-p$password",               # Password protection
+    $backupArchive            # Output archive file name
+) + $foldersToArchive   # Add the folders to include
+
+# Run the 7z command with the specified arguments
+Start-Process -FilePath $sevenZipPath -ArgumentList $cmdArgs -NoNewWindow -Wait
 
 # Inform the user the backup archive was copied to the external drive
-Write-Host "`nThe backup archive was copied to $backupDirectory\`n"
+Write-Host "`nThe backup was completed in $backupDirectory\`n"
 
 # Wait for the user to click enter to exit
-Read-Host -Prompt "Backup completed. Press enter to exit"
+Read-Host -Prompt "Press enter to exit"
