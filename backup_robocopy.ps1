@@ -45,7 +45,7 @@ foreach ($folder in $foldersToBackup) {
         "/Z",       # Restartable mode. Robocopy can pick up from where it was last.
         "/XA:SH",   # Exclude system and hidden files
         "/R:3",     # Retry 3 times if a file fails
-        "/W:0"      # Wait 0 seconds between retries
+        "/W:1"      # Wait 1 seconds between retries
         )
 
     # Backup the files using the robocopy command
