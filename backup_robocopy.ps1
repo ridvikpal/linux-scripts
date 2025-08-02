@@ -10,10 +10,10 @@ foreach ($folder in $foldersToBackup) {
     Write-Host $folder
 }
 
-# Ask the user for the external drive they want to backup the archive ot
-$driveLetter = (Read-Host -Prompt "`nPlease enter the external drive's mounted filesystem letter to backup the folders to").ToUpper()
+# Ask the user for the drive they want to backup the archive to
+$driveLetter = (Read-Host -Prompt "`nPlease enter the drive letter to backup the folders to").ToUpper()
 
-# Check if the external drive is mounted at that location
+# Check if the drive is mounted at that location
 if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
     # Inform the user of the error
     Write-Error "`nUnable to detect the ${driveLetter}: drive. Please ensure it is properly mounted, and then try again.`n"
