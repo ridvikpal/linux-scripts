@@ -39,10 +39,10 @@ else {
     Write-Host "The backup archive will be encrypted with the password defined in ${passwordFilePath}`n"
 }
 
-# Ask the user for the external drive they want to backup the archive ot
-$driveLetter = (Read-Host -Prompt "Please enter the external drive letter to backup archive to (make sure the drive is mounted)").ToUpper()
+# Ask the user for the drive they want to backup the archive to
+$driveLetter = (Read-Host -Prompt "Please enter the drive letter to backup archive to (make sure the drive is mounted)").ToUpper()
 
-# Check if the external drive is mounted at that location
+# Check if the drive is mounted at that location
 if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
     # Inform the user of the error
     Write-Error "Unable to detect the ${driveLetter}: drive. Please ensure it is properly mounted, and then try again."
@@ -59,7 +59,7 @@ $timestamp = (Get-Date).ToString("yyyy.MM.dd.T.HH.mm.ss")
 $hostname = (hostname);
 
 # The backup directory on the external drive
-$backupDirectory = "${driveLetter}:\Backup\${hostname}"
+$backupDirectory = "${driveLetter}:\${hostname}.backup"
 
 # Check if the backup folder exists on the external drive and if not, then create it
 if (!(Test-Path -PathType Container -Path $backupDirectory)) {
@@ -67,7 +67,7 @@ if (!(Test-Path -PathType Container -Path $backupDirectory)) {
 }
 
 # Define the output archive path and name
-$backupArchive = "$backupDirectory\backup.$timestamp.7z"
+$backupArchive = "$backupDirectory\$timestamp.7z"
 
 # Build the command to create the 7zip archive
 $cmdArgs = @(
