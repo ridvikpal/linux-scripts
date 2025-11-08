@@ -10,7 +10,7 @@ foreach ($folder in $foldersToBackup) {
     Write-Host $folder
 }
 
-# Ask the user for the drive they want to backup the archive to
+# Ask the user for the drive they want to backup to
 $driveLetter = (Read-Host -Prompt "`nPlease enter the drive letter to backup the folders to").ToUpper()
 
 # Check if the drive is mounted at that location
