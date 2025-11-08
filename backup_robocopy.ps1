@@ -23,14 +23,13 @@ if (!(Test-Path -PathType Container -Path "${driveLetter}:")) {
     throw
 }
 
-# Inform the user the backup is starting
-Write-Host "`nStarting backup to ${driveLetter}: drive`n"
-
-# Today's date to archive the backup
-$timestamp = (Get-Date).ToString("yyyy.MM.dd.T.HH.mm.ss")
-
 # Get the hostname of the machine
 $hostname = (hostname);
+
+$backupPath = "${driveLetter}:\${hostname}.backup"
+
+# Inform the user the backup is starting
+Write-Host "`nStarting backup to ${backupPath}`n"
 
 # Backup each folder 1 by 1
 foreach ($folder in $foldersToBackup) {
@@ -40,7 +39,7 @@ foreach ($folder in $foldersToBackup) {
     # Build the command array to create the backup using robocopy
     $cmdArgs = @(
         $folder,
-        "${driveLetter}:\${hostname}.backup\${timestamp}\${leafName}",
+        "${backupPath}\${leafName}",
         "/MIR",     # Mirror the source directory to the destination directory.
         "/Z",       # Restartable mode. Robocopy can pick up from where it was last.
         "/XA:SH",   # Exclude system and hidden files
@@ -51,6 +50,10 @@ foreach ($folder in $foldersToBackup) {
     # Backup the files using the robocopy command
     Start-Process -FilePath robocopy -ArgumentList $cmdArgs -NoNewWindow -Wait
 }
+
+# Store today's date in the backup
+$timestamp = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+Set-Content -Path "${backupPath}\timestamp.txt" -Value $timestamp
 
 # Wait for the user to click enter to exit
 Read-Host -Prompt "Backup completed. Press enter to exit"
