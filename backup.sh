@@ -26,7 +26,7 @@ mounted_drive_paths=$(findmnt -l -o TARGET | grep /media)
 
 # let the user choose an external drive from the available mounted drives.
 echo ""
-echo "Choose a mounted drive:"
+echo "Choose a mounted backup drive:"
 select DRIVE_PATH in "${mounted_drive_paths[@]}"; do
     if [[ -n "$DRIVE_PATH" ]]; then
         echo "You selected backup drive mounted at: $DRIVE_PATH"
@@ -60,12 +60,11 @@ for SRC in "${FOLDERS[@]}"; do
     echo ""
     echo "Backing up '$SRC' -> '$DEST'"
 
-    # Read only backup using rsync, ignoring system (.*) files
+    # Backup using rsync, ignoring system (.*) files
     rsync -avh \
         --no-links \
         --delete \
         --info=progress2 \
-        --chmod=Dugo=rx,Fugo=r \
         --exclude='.*' \
         "$SRC"/ "$DEST"/
 
