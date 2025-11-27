@@ -1,5 +1,5 @@
-C:\Users\ridvikpal\Docs
-C:\Users\ridvikpal\Pics
-C:\Users\ridvikpal\Vids
-C:\Users\ridvikpal\Desktop
-C:\Users\ridvikpal\Downloads
+/home/ridvikpal/Documents
+/home/ridvikpal/Pictures
+/home/ridvikpal/Videos
+/home/ridvikpal/Desktop
+/home/ridvikpal/Downloads
