@@ -44,7 +44,7 @@ echo "--------------------------------"
 # Create the backup path if it doesn't exist.
 mkdir -p "$BACKUP_PATH"
 
-# Process each folder
+# Backup each folder 1 by 1
 for SRC in "${FOLDERS[@]}"; do
     # Extract folder name (leaf)
     LEAF_NAME=$(basename "$SRC")
@@ -67,9 +67,12 @@ for SRC in "${FOLDERS[@]}"; do
     fi
 done
 
-# Write timestamp
+# Write backup timestamp
 date '+%Y-%m-%d %H:%M:%S' > "${BACKUP_PATH}/timestamp.txt"
+# Ensure the timestamp is read-only 
+chmod 444 "${BACKUP_PATH}/timestamp.txt"
 
+# Inform the user the backup is completed.
 echo ""
 echo "Backup completed!"
 read -rp "Press enter to exit..."
