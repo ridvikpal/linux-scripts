@@ -54,7 +54,7 @@ for SRC in "${FOLDERS[@]}"; do
     echo ""
     echo "Backing up '$SRC' -> '$DEST'"
 
-    # rsync equivalent of robocopy /MIR /Z /XA:SH /R:3 /W:1
+    # Read only backup using rsync, ignoring system (.*) files
     rsync -avh \
         --no-links \
         --delete \
@@ -67,11 +67,6 @@ for SRC in "${FOLDERS[@]}"; do
         echo "Warning: rsync reported an issue for $SRC"
     fi
 done
-
-# Write backup timestamp
-date '+%Y-%m-%d %H:%M:%S' > "${BACKUP_PATH}/timestamp.txt"
-# Ensure the timestamp is read-only 
-chmod 444 "${BACKUP_PATH}/timestamp.txt"
 
 # Inform the user the backup is completed.
 echo ""
