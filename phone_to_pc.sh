@@ -44,7 +44,8 @@ done
 # Get the phone's root data path
 PHONE_DATA_PATH="${GVFS_PATH}/${PHONE_MOUNT_NAME}/Internal shared storage"
 
-BACKUP_PATH="/home/Documents/Phone"
+# Setup the backup path on pc
+BACKUP_PATH="/home/ridvikpal/Documents/Phone"
 
 # Inform the user the backup is starting
 echo ""
