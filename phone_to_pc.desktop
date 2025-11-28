@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=phone_to_pc
+Terminal=true
+Path=/home/ridvikpal/github/backup-scripts
+Exec=bash -c "./phone_to_pc.sh"
