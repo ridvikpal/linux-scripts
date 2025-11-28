@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the file that contains the list of folders to back up
-FOLDERS_FILE="./pc_to_ext_drive_folders.txt"
+FOLDERS_FILE="./pc_folders.txt"
 
 # Ensure folders file exists
 if [[ ! -f "$FOLDERS_FILE" ]]; then
