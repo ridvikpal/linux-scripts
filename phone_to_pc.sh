@@ -21,9 +21,9 @@ for folder in "${FOLDERS[@]}"; do
 done
 
 # Get the current user uid
-UID=$(id -u)
+USER_ID=$(id -u)
 # The location of possible mountpoints for the phone
-GVFS_PATH="/run/user/${UID}/gvfs"
+GVFS_PATH="/run/user/${USER_ID}/gvfs"
 
 # Ask the user which phone they want to backup the notes from
 mounted_phones=$(ls $GVFS_PATH)
