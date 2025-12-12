@@ -4,12 +4,12 @@
 
 # Setup the reason for the inhibition.
 # It will be visible in 'systemd-inhibit --list'.
-INHIBIT_REASON="User is keeping the laptop awake"
+INHIBIT_REASON="Running keep_awake.sh script"
 
 # Inform the user the system is being inhibited
-echo "Inhibiting the system from idling, sleeping/suspending and shutting down"
+echo "Inhibiting the GNOME desktop session from locking, blanking or suspending"
 echo "Reason: $INHIBIT_REASON"
-echo "Press [Ctrl+C] to stop the script and allow system sleep/suspend."
+echo "Press [Ctrl+C] to stop the script."
 echo ""
 
 # The systemd-inhibit command creates a lock.
@@ -19,13 +19,7 @@ echo ""
 # --what=idle: Prevents the screen from dimming or the system from idling.
 # --what=sleep: Prevents system from going into suspend/hibernate.
 # --what=shutdown: Prevents system from shutting down/rebooting.
-systemd-inhibit \
-    --who=$USER \
-    --why="$INHIBIT_REASON" \
-    --what="idle:sleep:shutdown" \
-    sleep infinity
-
-# Inform the user 'sleep infinity' is interrupted (e.g., by Ctrl+C).
-echo ""
-echo "Inhibition released. The system can now idle, sleep/suspend, and shutdown."
-read -rp "Press enter to exit..."
+gnome-session-inhibit \
+    --reason "$INHIBIT_REASON" \
+    --inhibit suspend:idle \
+    --inhibit-only
