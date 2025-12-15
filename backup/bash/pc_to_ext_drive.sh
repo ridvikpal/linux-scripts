@@ -75,4 +75,5 @@ done
 # Inform the user the backup is completed.
 echo ""
 echo "Backup completed!"
-read -rp "Press enter to exit..."
+read -rp "Press any key to exit... " -n 1
+echo ""

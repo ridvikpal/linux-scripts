@@ -79,4 +79,5 @@ done
 # Inform the user the restore has been completed.
 echo ""
 echo "Restore completed!"
-read -rp "Press enter to exit..."
+read -rp "Press any key to exit... " -n 1
+echo ""
