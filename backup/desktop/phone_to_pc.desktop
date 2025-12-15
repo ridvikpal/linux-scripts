@@ -2,5 +2,5 @@
 Type=Application
 Name=phone_to_pc
 Terminal=true
-Path=/home/ridvikpal/github/scripts
+Path=/home/ridvikpal/github/scripts/backup/bash
 Exec=bash -c "./phone_to_pc.sh"
