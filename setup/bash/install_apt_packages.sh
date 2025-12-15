@@ -38,3 +38,6 @@ apt-get install -y libreoffice
 
 # install vlc
 apt-get install -y vlc
+
+# install shotwell
+apt-get install -y shotwell
