@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# Script to keep the laptop awake using gnome-session-inhibit
+####################
+# This script is used to keep an Ubuntu laptop awake 
+# and prevent sleeping using gnome-session-inhibit.
+####################
 
 # Setup the reason for the inhibition.
 # It will be visible in 'gnome-session-inhibit -l'.

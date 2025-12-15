@@ -1,5 +1,10 @@
 #!/bin/bash
 
+####################
+# This script is used to change certain hidden GNOME settings
+# for a better user experience using gsettings.
+####################
+
 # set the background to black
 echo "Setting background to black"
 gsettings set org.gnome.desktop.background picture-options 'none'
@@ -15,6 +20,7 @@ echo "Disabling move-to-workspace-up/down keyboard shortcuts"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up ['']
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down ['']
 
+# Inform the user about how to reset a gsettings key-value pair
 echo "In case you ever want to reset a gsettings key-value pair, use:"
 echo "gsettings reset SCHEMA [:PATH]  KEY"
 echo "Ex: gsettings reset org.gnome.desktop.wm.keybindings move-to-workspace-down"

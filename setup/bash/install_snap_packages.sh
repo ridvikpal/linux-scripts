@@ -1,5 +1,9 @@
 #!/bin/bash
 
+####################
+# This script is used to install certain snap packages in Ubuntu.
+####################
+
 # first ensure the user is running this script as root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root (use sudo)" 
