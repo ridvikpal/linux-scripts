@@ -22,6 +22,9 @@ fi
 # install nonfree ubuntu extras such as MS fonts and codecs
 apt-get install -y ubuntu-restricted-extras
 
+# install recommended fonts
+apt-get install fonts-recommended
+
 # install the default java runtime
 apt-get install -y default-jre
 
