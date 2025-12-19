@@ -43,6 +43,9 @@ apt-get install -y texlive texlive-latex-extra chktex
 # install libreoffice
 apt-get install -y libreoffice libreoffice-gnome
 
+# install libreoffice thesaurus and spell checkers
+apt-get install -y hunspell-en-ca hunspell-en-gb hunspell-en-us hunspell-en-au mythes-en-us mythes-en-au
+
 # install vlc
 apt-get install -y vlc
 
