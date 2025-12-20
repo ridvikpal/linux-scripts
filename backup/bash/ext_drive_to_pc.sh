@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to restore certain folders
-# from an external drive to a Linux PC using rsync.
+# This script is used to restore folders from an external drive using rsync.
 ####################
 
 # Path to the file that contains the list of folders to restore

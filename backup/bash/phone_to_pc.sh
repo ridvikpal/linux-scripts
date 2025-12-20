@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to backup certain folders
-# from an Android phone to a Linux PC using rsync.
+# This script is used to backup folders from an Android phone using rsync.
 ####################
 
 # Path to the file that contains the list of folders to back up

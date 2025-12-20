@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to backup certain folders
-# from a Linux PC to an external drive using rsync.
+# This script is used to backup folders to an external drive using rsync.
 ####################
 
 # Path to the file that contains the list of folders to back up

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to install certain apt/deb packages in Debian Linux.
+# This script is used to install apt/deb packages.
 ####################
 
 # first ensure the user is running this script as root
@@ -13,7 +13,7 @@ fi
 # Path to the file that contains a list of deb packages to install
 DEB_PACKAGES_FILE="../text/deb_packages_to_install.txt"
 
-# Ensure the deb list file exists
+# Ensure the deb packages file exists
 if [[ ! -f "$DEB_PACKAGES_FILE" ]]; then
     echo "Error: Deb packages file '$DEB_PACKAGES_FILE' not found."
     exit 1

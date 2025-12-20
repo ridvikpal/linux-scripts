@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to change certain hidden GNOME settings
-# for a better user experience using gsettings.
+# This script makes useful changes to hidden GNOME settings.
 ####################
 
 # set the background to black
