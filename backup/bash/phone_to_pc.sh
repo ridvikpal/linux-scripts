@@ -28,11 +28,11 @@ done
 GVFS_PATH="/run/user/${UID}/gvfs"
 
 # Ask the user which phone they want to backup the notes from
-mounted_phones=$(ls $GVFS_PATH)
+MOUNTED_PHONES=$(ls $GVFS_PATH)
 
 echo ""
 echo "Choose a mounted phone:"
-select PHONE_MOUNT_NAME in "${mounted_phones[@]}"; do
+select PHONE_MOUNT_NAME in "${MOUNTED_PHONES[@]}"; do
     if [[ -n "$PHONE_MOUNT_NAME" ]]; then
         echo "You selected phone: $PHONE_MOUNT_NAME"
         break

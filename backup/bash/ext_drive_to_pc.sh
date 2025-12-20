@@ -20,18 +20,18 @@ mapfile -t FOLDERS < "$FOLDERS_FILE"
 echo ""
 echo "Restoring the following folders from an external drive to PC:"
 echo "---------------------------------"
-for folder in "${FOLDERS[@]}"; do
-    echo "$folder"
+for FOLDER in "${FOLDERS[@]}"; do
+    echo "$FOLDER"
 done
 
 
 # get all the mounted external drives
-mounted_drive_paths=$(findmnt -l -o TARGET | grep /media)
+MOUNTED_DRIVE_PATHS=$(findmnt -l -o TARGET | grep /media)
 
 # let the user choose an external drive from the available mounted drives.
 echo ""
 echo "Choose a mounted backup drive:"
-select DRIVE_PATH in "${mounted_drive_paths[@]}"; do
+select DRIVE_PATH in "${MOUNTED_DRIVE_PATHS[@]}"; do
     if [[ -n "$DRIVE_PATH" ]]; then
         echo "You selected backup drive mounted at: $DRIVE_PATH"
         break
