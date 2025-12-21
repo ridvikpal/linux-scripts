@@ -1,3 +1,4 @@
-spotify
-code --classic
 node --classic
+code --classic
+spotify
+chromium
