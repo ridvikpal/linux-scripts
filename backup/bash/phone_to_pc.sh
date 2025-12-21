@@ -2,6 +2,9 @@
 
 ####################
 # This script is used to backup folders from an Android phone using rsync.
+
+# The folders to backup are stored in $FOLDERS_FILE
+# and must have unique leaf names
 ####################
 
 # Path to the file that contains the list of folders to back up
