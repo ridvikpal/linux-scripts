@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to install apt/deb packages.
+# This script is used to install deb packages.
 ####################
 
 # first ensure the user is running this script as root
