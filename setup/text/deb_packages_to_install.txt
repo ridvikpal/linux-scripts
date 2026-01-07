@@ -1,4 +1,3 @@
-ubuntu-restricted-extras
 curl
 default-jre
 git
