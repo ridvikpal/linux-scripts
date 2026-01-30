@@ -1,5 +1,9 @@
+apt-file
+kde-plasma-desktop
+gwenview okular ark kcalc
+fonts-recommended
+chromium
 curl
-ffmpeg
 default-jre
 git
 python3 python3-pip python3-venv
@@ -7,4 +11,3 @@ gcc g++ gdb make
 texlive texlive-latex-extra
 libreoffice
 vlc
-shotwell
