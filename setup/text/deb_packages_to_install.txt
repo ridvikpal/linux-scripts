@@ -11,3 +11,4 @@ gcc g++ gdb make
 texlive texlive-latex-extra
 libreoffice libreoffice-plasma
 vlc
+go-mtpfs
