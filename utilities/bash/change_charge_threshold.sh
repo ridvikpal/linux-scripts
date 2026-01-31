@@ -9,7 +9,7 @@
 
 # first ensure the user is running this script as root
 if [[ "${EUID}" -ne 0 ]]; then
-   echo "This script must be run as root (use sudo)" 
+   echo "This script must be run as root (use sudo)"
    exit 1
 fi
 
@@ -59,7 +59,7 @@ select CHARGE_OPTION in "${CHARGE_OPTIONS[@]}"; do
         *)
             # in this case, we will exit immediately for safety
             echo "Invalid choice."
-            read -rp "Press enter to exit..."
+            read -rp "Press any key to exit..."
             exit 1
             ;;
     esac

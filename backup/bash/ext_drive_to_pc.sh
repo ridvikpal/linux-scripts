@@ -40,7 +40,7 @@ select DRIVE_PATH in "${MOUNTED_DRIVE_PATHS[@]}"; do
         break
     else
         echo "Invalid choice."
-        read -rp "Press enter to exit..."
+        read -rp "Press any key to exit..."
         exit 1
     fi
 done
