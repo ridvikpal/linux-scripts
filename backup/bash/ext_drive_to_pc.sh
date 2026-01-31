@@ -85,7 +85,7 @@ for DEST_RAW in "${FOLDERS[@]}"; do
         "${SRC}/" "${DEST}/"
 
     if [[ $? -ne 0 ]]; then
-        echo "Warning: rsync reported an issue for ${DEST}"
+        echo "WARNING: rsync reported an issue for ${DEST}"
     fi
 done
 

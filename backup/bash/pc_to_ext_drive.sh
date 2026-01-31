@@ -2,7 +2,7 @@
 
 ####################
 # This script is used to backup folders to an external drive using rsync.
-# 
+#
 # The folders to backup are stored in $FOLDERS_FILE
 # and must have unique leaf names
 ####################
@@ -81,7 +81,7 @@ for SRC_RAW in "${FOLDERS[@]}"; do
         "${SRC}/" "${DEST}/"
 
     if [[ $? -ne 0 ]]; then
-        echo "Warning: rsync reported an issue for ${SRC}"
+        echo "WARNING: rsync reported an issue for ${SRC}"
     fi
 done
 
