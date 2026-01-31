@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to backup folders from an Android phone using kioclient
+# This script is used to backup folders from an Android phone using rsync.
 
 # The folders to backup are stored in $FOLDERS_FILE
 # and must have unique leaf names
@@ -26,49 +26,39 @@ echo "---------------------------------"
 for folder in "${FOLDERS[@]}"; do
     echo "${folder}"
 done
-echo ""
 
-# get all connected phones and load them into an array
-mapfile -t CONNECTED_PHONES < <(kioclient ls "mtp:/" | sed '1d;$d')
+# The location of possible mountpoints for the phone
+GVFS_PATH="/run/user/${UID}/gvfs"
 
-# prompt the user choose a phone to backup files from
+# Ask the user which phone they want to backup the notes from
+MOUNTED_PHONES=$(ls "${GVFS_PATH}")
+
 echo ""
-echo "Choose a connected phone:"
-select PHONE in "${CONNECTED_PHONES[@]}"; do
-    if [[ -n "${PHONE}" ]]; then
-        echo "You selected phone: ${PHONE}"
+echo "Choose a mounted phone:"
+select PHONE_MOUNT_NAME in "${MOUNTED_PHONES[@]}"; do
+    if [[ -n "${PHONE_MOUNT_NAME}" ]]; then
+        echo "You selected phone: ${PHONE_MOUNT_NAME}"
         break
     else
         echo "Invalid choice."
-        read -rp "Press any key to exit..."
+        read -rp "Press enter to exit..."
         exit 1
     fi
 done
 
-# Get the phone's storage name (e.g., Internal shared storage)
-STORAGE_NAME=$(kioclient ls "mtp:/${PHONE}" | sed -n '2{p;q}')
-# Inform the user if the storage name cannot be found
-if [[ -z "${STORAGE_NAME}" ]]; then
-    echo "ERROR: Could not find storage on ${PHONE}. Is File Transfer (MTP) mode enabled on the phone?"
-    read -rp "Press any key to exit..."
-        exit 1
-fi
-
 # Get the phone's root data path
-PHONE_DATA_PATH="mtp:/${PHONE}/${STORAGE_NAME}"
+PHONE_DATA_PATH="${GVFS_PATH}/${PHONE_MOUNT_NAME}/Internal shared storage"
 
 # Setup the backup path on pc
-BACKUP_PATH="${HOME}/Phone"
-# Delete the backup path if it exists before proceeding
-# because we want to overwrite it with new data
-rm -rf "${BACKUP_PATH}"
-# Create the backup path again.
-mkdir "${BACKUP_PATH}"
+BACKUP_PATH="${HOME}/Documents/Phone"
 
 # Inform the user the backup is starting
 echo ""
 echo "Starting backup to: ${BACKUP_PATH}"
 echo "--------------------------------"
+
+# Create the backup path if it doesn't exist.
+mkdir -p "${BACKUP_PATH}"
 
 # Backup each folder 1 by 1
 for SRC in "${FOLDERS[@]}"; do
@@ -77,16 +67,27 @@ for SRC in "${FOLDERS[@]}"; do
 
     # Extract folder name (leaf)
     LEAF_NAME=$(basename "${SRC}")
+    # Create the backup path using the leaf name
+    DEST="${BACKUP_PATH}/${LEAF_NAME}"
 
     echo ""
-    echo "Backing up '${FULL_SRC_PATH}' -> '${BACKUP_PATH}/${LEAF_NAME}'"
+    echo "Backing up '${FULL_SRC_PATH}' -> '${DEST}'"
 
-    # Backup folder using kioclient
-    kioclient copy "${FULL_SRC_PATH}" "${BACKUP_PATH}/"
+    # Backup using rsync, ignoring system (.*) files
+    # and other file properties since MTP doesn't support them
+    rsync -rvh \
+        --size-only \
+        --no-perms \
+        --no-times \
+        --no-links \
+        --delete-delay \
+        --itemize-changes \
+        --info=progress2 \
+        --exclude='.*' \
+        "${FULL_SRC_PATH}/" "${DEST}/"
 
-    # inform the user if there was an error backing up a specific folder
     if [[ $? -ne 0 ]]; then
-        echo "WARNING: kioclient reported an issue for ${SRC}"
+        echo "WARNING: rsync reported an issue for ${SRC}"
     fi
 done
 
