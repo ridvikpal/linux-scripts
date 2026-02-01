@@ -80,6 +80,7 @@ for SRC_RAW in "${FOLDERS[@]}"; do
         --exclude='.*' \
         "${SRC}/" "${DEST}/"
 
+    # Inform the user if an error occurred with rsync
     if [[ $? -ne 0 ]]; then
         echo "WARNING: rsync reported an issue for ${SRC}"
     fi

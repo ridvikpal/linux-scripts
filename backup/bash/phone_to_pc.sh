@@ -50,7 +50,7 @@ done
 PHONE_DATA_PATH="${GVFS_PATH}/${PHONE_MOUNT_NAME}/Internal shared storage"
 
 # Setup the backup path on pc
-BACKUP_PATH="${HOME}/Documents/Phone"
+BACKUP_PATH="${HOME}/Phone"
 
 # Inform the user the backup is starting
 echo ""
@@ -86,6 +86,7 @@ for SRC in "${FOLDERS[@]}"; do
         --exclude='.*' \
         "${FULL_SRC_PATH}/" "${DEST}/"
 
+    # Inform the user if an error occurred with rsync
     if [[ $? -ne 0 ]]; then
         echo "WARNING: rsync reported an issue for ${SRC}"
     fi
