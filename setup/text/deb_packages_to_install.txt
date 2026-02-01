@@ -7,5 +7,5 @@ git
 python3 python3-pip python3-venv
 gcc g++ gdb make
 texlive texlive-latex-extra
-libreoffice
+libreoffice hunspell hunspell-en-ca
 ffmpeg
