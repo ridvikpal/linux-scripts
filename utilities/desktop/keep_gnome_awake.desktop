@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
-Name=Keep PC Awake
+Name=Keep GNOME Awake
 Terminal=true
 Exec=bash -c "$HOME/github/scripts/utilities/bash/keep_gnome_awake.sh"
