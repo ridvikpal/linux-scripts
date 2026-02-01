@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ####################
 # This script copies your GNOME Shell monitor configuration to
 # the gdm configuration folder on Debian
