@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script sets up systemd to automatically call the sync-monitor-gdm
-# systemd unit files to automatically sync monitor changes with GDM
+# This script is used to add custom systemd unit files to a machine.
 ####################
 
 # first ensure the user is running this script as root
