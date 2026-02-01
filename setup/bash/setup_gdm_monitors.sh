@@ -18,11 +18,15 @@ if [[ "${EUID}" -ne 0 ]]; then
    exit 1
 fi
 
+GNOME_SHELL_CONFIG_PATH="/home/ridvikpal/.config"
+GDM_CONFIG_PATH="/var/lib/gdm3/.config"
+GDM_USER="Debian-gdm"
+
 echo "Copying GNOME Shell monitor configuration to GDM configuration"
 
 # then copy the monitors.xml file to the gdm configuration directory
-sudo cp /home/ridvikpal/.config/monitors.xml /var/lib/gdm3/.config/
+sudo cp "${GNOME_SHELL_CONFIG_PATH}/monitors.xml" "${GDM_CONFIG_PATH}/"
 
 # Update the permissions to ensure the copied monitors file is
 # owned by the Debian-gdm user
-sudo chown Debian-gdm:Debian-gdm /var/lib/gdm3/.config/monitors.xml
+sudo chown "${GDM_USER}:${GDM_USER}" "${GDM_CONFIG_PATH}/monitors.xml"
