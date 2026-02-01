@@ -8,7 +8,7 @@
 #
 # It's also important to note that GNOME 48 now offers the capabilities this
 # script provides out of the box via GNOME Settings, so this script is really
-# only needed for older GNOME versions
+# only needed for older GNOME versions or other desktop environment
 ####################
 
 # first ensure the user is running this script as root
