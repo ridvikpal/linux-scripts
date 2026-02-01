@@ -9,3 +9,4 @@ gcc g++ gdb make
 texlive texlive-latex-extra
 libreoffice hunspell hunspell-en-ca
 ffmpeg
+libheif-examples
