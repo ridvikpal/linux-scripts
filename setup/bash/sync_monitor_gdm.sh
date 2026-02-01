@@ -29,8 +29,8 @@ GDM_USER="Debian-gdm"
 echo "Copying GNOME Shell monitor configuration to GDM configuration"
 
 # then copy the monitors.xml file to the gdm configuration directory
-sudo cp "${GNOME_SHELL_CONFIG_PATH}/monitors.xml" "${GDM_CONFIG_PATH}/"
+cp "${GNOME_SHELL_CONFIG_PATH}/monitors.xml" "${GDM_CONFIG_PATH}/"
 
 # Update the permissions to ensure the copied monitors file is
 # owned by the Debian-gdm user
-sudo chown "${GDM_USER}:${GDM_USER}" "${GDM_CONFIG_PATH}/monitors.xml"
+chown "${GDM_USER}:${GDM_USER}" "${GDM_CONFIG_PATH}/monitors.xml"

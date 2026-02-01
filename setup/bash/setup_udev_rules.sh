@@ -16,9 +16,9 @@ UDEV_PATH="/etc/udev/rules.d"
 
 # symlink the usb wakeup rules udev rule
 echo "Symlinking 90-disable-usb-wakeup.rules..."
-sudo ln -sf "${REPO_PATH}/setup/udev/90-disable-usb-wakeup.rules" "${UDEV_PATH}/90-disable-usb-wakeup.rules"
+ln -sf "${REPO_PATH}/setup/udev/90-disable-usb-wakeup.rules" "${UDEV_PATH}/90-disable-usb-wakeup.rules"
 
 # reload the udev rules
 echo "Reloading udev rules..."
-sudo udevadm control --reload-rules
-sudo udevadm trigger
+udevadm control --reload-rules
+udevadm trigger
