@@ -18,10 +18,14 @@ if [[ "${EUID}" -ne 0 ]]; then
    exit 1
 fi
 
+# define reusable paths
 GNOME_SHELL_CONFIG_PATH="/home/ridvikpal/.config"
 GDM_CONFIG_PATH="/var/lib/gdm3/.config"
+
+# define the GDM user, which can be found via grep gdm /etc/passwd
 GDM_USER="Debian-gdm"
 
+# Inform the user what the script is doing
 echo "Copying GNOME Shell monitor configuration to GDM configuration"
 
 # then copy the monitors.xml file to the gdm configuration directory

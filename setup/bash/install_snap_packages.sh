@@ -10,6 +10,7 @@ if [[ "${EUID}" -ne 0 ]]; then
    exit 1
 fi
 
+# Path to the file that contains a list of snap packages to install
 SNAP_PACKAGES_FILE="../text/snap_packages_to_install.txt"
 
 # Ensure the snap packages file exists

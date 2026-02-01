@@ -10,6 +10,7 @@ if [[ "${EUID}" -ne 0 ]]; then
    exit 1
 fi
 
+# define reusable paths
 REPO_PATH="/home/ridvikpal/github/scripts"
 SYSTEMD_PATH="/etc/systemd/system"
 
