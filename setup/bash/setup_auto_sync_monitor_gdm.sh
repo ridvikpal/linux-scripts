@@ -11,13 +11,16 @@ if [[ "${EUID}" -ne 0 ]]; then
    exit 1
 fi
 
+REPO_PATH="/home/ridvikpal/github/scripts"
+SYSTEMD_PATH="/etc/systemd/system"
+
 # symlink the service file to the systemd system directory
 echo "Symlinking sync-monitor-gdm.service..."
-sudo ln -sf /home/ridvikpal/github/scripts/setup/systemd/sync-monitor-gdm.service /etc/systemd/system/sync-monitor-gdm.service
+sudo ln -sf "${REPO_PATH}/setup/systemd/sync-monitor-gdm.service" "${SYSTEMD_PATH}/sync-monitor-gdm.service"
 
 # symlink the path file to the systemd system directory
 echo "Symlinking sync-monitor-gdm.path..."
-sudo ln -sf /home/ridvikpal/github/scripts/setup/systemd/sync-monitor-gdm.path /etc/systemd/system/sync-monitor-gdm.path
+sudo ln -sf "${REPO_PATH}/setup/systemd/sync-monitor-gdm.path" "${SYSTEMD_PATH}/sync-monitor-gdm.path"
 
 # reload systemd so it recognizes the new files
 echo "Reloading systemd..."
