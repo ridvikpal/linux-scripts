@@ -1,0 +1,13 @@
+####################
+# This systemd path file executes the sync-monitor-gdm.service when called
+####################
+
+[Unit]
+Description=Watch for monitor configuration changes
+
+[Path]
+PathChanged=/home/ridvikpal/.config/monitors.xml
+Unit=sync-monitor-gdm.service
+
+[Install]
+WantedBy=multi-user.target
