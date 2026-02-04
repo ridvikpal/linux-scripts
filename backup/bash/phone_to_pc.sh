@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ####################
-# This script is used to backup folders from an Android phone using rsync.
+# This script is used to backup folders from an Android phone using rsync
+# and gvfs.
 
 # The folders to backup are stored in $FOLDERS_FILE
 # and must have unique leaf names
