@@ -1,9 +1,5 @@
-bolt
-fprintd libpam-fprintd
-blueman
 apt-file
 curl
-xdotool
 rsync
 default-jre
 git
