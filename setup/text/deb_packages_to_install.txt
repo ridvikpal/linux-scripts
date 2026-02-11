@@ -3,7 +3,9 @@ fprintd libpam-fprintd
 blueman
 apt-file
 curl
-xdotool
+xsct
+chromium
+gparted
 rsync
 default-jre
 git
@@ -13,4 +15,3 @@ libreoffice
 texlive texlive-latex-extra
 ffmpeg
 libheif-examples
-showtime
