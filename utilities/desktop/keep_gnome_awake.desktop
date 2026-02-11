@@ -2,5 +2,5 @@
 Type=Application
 Name=Keep GNOME Awake
 Terminal=true
-Path=/home/ridvikpal/github/scripts/utilities/bash
+Path=/home/ridvikpal/github/linux-scripts/utilities/bash
 Exec=./keep_gnome_awake.sh

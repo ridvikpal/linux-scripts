@@ -2,5 +2,5 @@
 Type=Application
 Name=Backup PC to External Drive
 Terminal=true
-Path=/home/ridvikpal/github/scripts/backup/bash
+Path=/home/ridvikpal/github/linux-scripts/backup/bash
 Exec=./pc_to_ext_drive.sh

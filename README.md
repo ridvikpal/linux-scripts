@@ -1,4 +1,4 @@
-# ridvikpal/scripts
+# ridvikpal/linux-scripts
 
 These are a collection of bash scripts I created to automate things such as backing up my files, installing programs and keeping my laptop awake when needed. For some of these scripts I created .desktop files so I can quickly run them as desktop apps.
 

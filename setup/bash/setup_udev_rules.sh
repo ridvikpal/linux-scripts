@@ -11,7 +11,7 @@ if [[ "${EUID}" -ne 0 ]]; then
 fi
 
 # define reusable paths
-REPO_PATH="/home/ridvikpal/github/scripts"
+REPO_PATH="/home/ridvikpal/github/linux-scripts"
 UDEV_PATH="/etc/udev/rules.d"
 
 # symlink the usb wakeup rules udev rule

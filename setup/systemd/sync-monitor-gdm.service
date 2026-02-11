@@ -7,7 +7,7 @@ Description=Sync monitor settings to GDM
 
 [Service]
 Type=oneshot
-ExecStart=/home/ridvikpal/github/scripts/setup/bash/sync_monitor_gdm.sh
+ExecStart=/home/ridvikpal/github/linux-scripts/setup/bash/sync_monitor_gdm.sh
 
 [Install]
 WantedBy=multi-user.target

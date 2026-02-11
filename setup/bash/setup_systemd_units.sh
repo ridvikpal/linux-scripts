@@ -11,7 +11,7 @@ if [[ "${EUID}" -ne 0 ]]; then
 fi
 
 # define reusable paths
-REPO_PATH="/home/ridvikpal/github/scripts"
+REPO_PATH="/home/ridvikpal/github/linux-scripts"
 SYSTEMD_PATH="/etc/systemd/system"
 
 # symlink the service file to the systemd system directory

@@ -6,7 +6,7 @@
 ####################
 
 # define reusable paths
-REPO_PATH="/home/ridvikpal/github/scripts"
+REPO_PATH="/home/ridvikpal/github/linux-scripts"
 DESKTOP_PATH="/home/ridvikpal/Desktop"
 
 # install the desktop file for pc_to_ext_drive.sh

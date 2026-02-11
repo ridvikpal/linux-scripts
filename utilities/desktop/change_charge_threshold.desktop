@@ -2,5 +2,5 @@
 Type=Application
 Name=Change Battery Charge Thresholds
 Terminal=true
-Path=/home/ridvikpal/github/scripts/utilities/bash
+Path=/home/ridvikpal/github/linux-scripts/utilities/bash
 Exec=sudo ./change_charge_threshold.sh
