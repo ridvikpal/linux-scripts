@@ -8,7 +8,7 @@
 #
 # It's also important to note that GNOME 48 now offers the capabilities this
 # script provides out of the box via GNOME Settings, so this script is really
-# only needed for older GNOME versions or other desktop environment
+# only needed for older GNOME versions or other desktop environments
 ####################
 
 # first ensure the user is running this script as root
@@ -41,7 +41,7 @@ echo ""
 
 # create the array of possible charge options
 CHARGE_OPTIONS=(
-    "Maximize battery runtime (96%-100%)"
+    "Maximize battery runtime (95%-100%)"
     "Maximize battery lifespan (75%-80%)"
 )
 
@@ -49,14 +49,14 @@ CHARGE_OPTIONS=(
 # and set the corresponding charge thresholds
 select CHARGE_OPTION in "${CHARGE_OPTIONS[@]}"; do
     case $CHARGE_OPTION in
-        "Maximize battery runtime (96%-100%)")
-            echo 100 | tee "${CHARGE_END_FILE}" > /dev/null
-            echo 96 | tee "${CHARGE_START_FILE}" > /dev/null
+        "Maximize battery runtime (95%-100%)")
+            echo 100 > "${CHARGE_END_FILE}"
+            echo 95 > "${CHARGE_START_FILE}"
             break
             ;;
         "Maximize battery lifespan (75%-80%)")
-            echo 75 | tee "${CHARGE_START_FILE}" > /dev/null
-            echo 80 | tee "${CHARGE_END_FILE}" > /dev/null
+            echo 75 > "${CHARGE_START_FILE}"
+            echo 80 > "${CHARGE_END_FILE}"
             break
             ;;
         # handle edge case where they select invalid option
@@ -71,7 +71,7 @@ done
 
 # make sure to set auto as the charge behaviour
 # so the system follows the charge thresholds
-echo auto | tee "${CHARGE_BEHAVIOUR_FILE}" > /dev/null
+echo auto > "${CHARGE_BEHAVIOUR_FILE}"
 
 # read the new charge thresholds
 CHARGE_START=$(< "${CHARGE_START_FILE}")
