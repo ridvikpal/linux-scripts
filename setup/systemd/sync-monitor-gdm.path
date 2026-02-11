@@ -3,7 +3,7 @@
 ####################
 
 [Unit]
-Description=Watch for monitor configuration changes
+Description=Watch for monitor configuration changes and sync with GDM if changed
 
 [Path]
 PathChanged=/home/ridvikpal/.config/monitors.xml
