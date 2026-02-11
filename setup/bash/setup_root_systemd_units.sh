@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to add custom systemd unit files to a machine.
+# This script is used to add custom root systemd unit files to a machine.
 ####################
 
 # first ensure the user is running this script as root
