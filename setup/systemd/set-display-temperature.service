@@ -1,0 +1,13 @@
+####################
+# This systemd service file executes the set_display_temperature.sh script when called
+####################
+
+[Unit]
+Description=Set the correct display temperature using xsct
+
+[Service]
+Type=oneshot
+ExecStart=/home/ridvikpal/github/linux-scripts/utilities/bash/set_display_temperature.sh
+
+[Install]
+WantedBy=default.target
