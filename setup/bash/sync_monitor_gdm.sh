@@ -2,11 +2,11 @@
 
 ####################
 # This script copies your GNOME Shell monitor configuration to
-# the gdm configuration folder on Ubuntu
+# the gdm configuration folder on Debian
 # so that both monitor configurations (e.g., scaling) is synced
 #
 # If you're using another Linux distro, you can find your gdm config folder
-# and gdm user via grep gdm /etc/passwd
+# via grep gdm /etc/passwd
 #
 # In case you ever want to reset the gdm configuration, just delete
 # the ${GDM_CONFIG_PATH}/monitors.xml file
@@ -20,10 +20,10 @@ fi
 
 # define reusable paths
 GNOME_SHELL_CONFIG_PATH="/home/ridvikpal/.config"
-GDM_CONFIG_PATH="/var/lib/gdm3/seat0/config"
+GDM_CONFIG_PATH="/var/lib/gdm3/.config"
 
 # define the GDM user, which can be found via grep gdm /etc/passwd
-GDM_USER="gdm"
+GDM_USER="Debian-gdm"
 
 # Inform the user what the script is doing
 echo "Copying GNOME Shell monitor configuration to GDM configuration"
@@ -32,5 +32,5 @@ echo "Copying GNOME Shell monitor configuration to GDM configuration"
 cp "${GNOME_SHELL_CONFIG_PATH}/monitors.xml" "${GDM_CONFIG_PATH}/"
 
 # Update the permissions to ensure the copied monitors file is
-# owned by the gdm user
+# owned by the Debian-gdm user
 chown "${GDM_USER}:${GDM_USER}" "${GDM_CONFIG_PATH}/monitors.xml"
