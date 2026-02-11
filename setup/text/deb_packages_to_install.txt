@@ -6,7 +6,7 @@ apt-file
 curl
 xsct
 chromium
-gparted
+gnome-disk-utility
 rsync
 default-jre
 git
