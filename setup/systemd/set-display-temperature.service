@@ -4,10 +4,16 @@
 
 [Unit]
 Description=Set the correct display temperature using xsct
+After=graphical-session.target
+BindsTo=graphical-session.target
+PartOf=graphical-session.target
+Requisite=graphical-session.target
+ConditionEnvironment=DISPLAY
+ConditionEnvironment=XAUTHORITY
 
 [Service]
 Type=oneshot
 ExecStart=/home/ridvikpal/github/linux-scripts/utilities/bash/set_display_temperature.sh
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
