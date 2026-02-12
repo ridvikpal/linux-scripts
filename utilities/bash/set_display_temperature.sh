@@ -1,4 +1,10 @@
 #!/bin/bash
+
+####################
+# This script is used to set the display temperature based
+# on the hour of the day.
+####################
+
 HOUR=$(date +%H)
 
 # If it's between 7 AM and 7 PM (07:00 - 18:59)
