@@ -7,5 +7,5 @@ if [ "$HOUR" -ge 7 ] && [ "$HOUR" -lt 19 ]; then
     xsct 0
 else
     echo "Setting display temperature to night mode"
-    xsct 3000
+    xsct 2500
 fi
