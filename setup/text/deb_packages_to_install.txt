@@ -5,6 +5,7 @@ gvfs gvfs-backends gvfs-fuse
 apt-file
 curl
 gammastep
+xdotool
 chromium
 gnome-disk-utility
 rsync
