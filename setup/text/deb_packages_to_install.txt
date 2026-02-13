@@ -18,3 +18,5 @@ hunspell hunspell-en-us hunspell-en-ca hunspell-en-gb hunspell-en-au mythes-en-a
 texlive texlive-latex-extra
 ffmpeg
 libheif-examples
+catfish
+flatpak
