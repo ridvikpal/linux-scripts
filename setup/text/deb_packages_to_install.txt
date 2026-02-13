@@ -4,7 +4,7 @@ blueman
 gvfs gvfs-backends gvfs-fuse
 apt-file
 curl
-xsct
+gammastep
 chromium
 gnome-disk-utility
 rsync
