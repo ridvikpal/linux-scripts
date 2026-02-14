@@ -6,7 +6,7 @@
 ####################
 
 # define reusable paths
-REPO_PATH="/home/ridvikpal/github/scripts"
+REPO_PATH="/home/ridvikpal/github/linux-scripts"
 APPLICATION_PATH="/home/ridvikpal/.local/share/applications"
 
 # install the desktop file for keep_gnome_awake.sh
