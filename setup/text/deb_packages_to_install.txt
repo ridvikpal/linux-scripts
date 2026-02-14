@@ -1,6 +1,7 @@
 bolt
 fprintd libpam-fprintd
 blueman
+pipewire-audio
 gvfs gvfs-backends gvfs-fuse
 apt-file
 curl
