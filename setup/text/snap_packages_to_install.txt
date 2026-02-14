@@ -1,4 +1,2 @@
 chromium
 spotify
-code --classic
-node --classic --channel=24
