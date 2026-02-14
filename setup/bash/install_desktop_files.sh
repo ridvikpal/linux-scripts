@@ -2,25 +2,21 @@
 
 ####################
 # This script is used to install custom .desktop files found in this repo
-# into the Desktop directory to quickly launch them.
+# into the .local/share/applications directory
 ####################
 
 # define reusable paths
-REPO_PATH="/home/ridvikpal/github/linux-scripts"
-DESKTOP_PATH="/home/ridvikpal/Desktop"
-
-# install the desktop file for pc_to_ext_drive.sh
-echo "Symlinking the .desktop file for pc_to_ext_drive.sh"
-ln -sf "${REPO_PATH}/backup/desktop/pc_to_ext_drive.desktop" "${DESKTOP_PATH}/pc_to_ext_drive.desktop"
-
-# install the desktop file for phone_to_pc.sh
-echo "Symlinking the .desktop file for phone_to_pc.sh"
-ln -sf "${REPO_PATH}/backup/desktop/phone_to_pc.desktop" "${DESKTOP_PATH}/phone_to_pc.desktop"
-
-# install the desktop file for change_charge_threshold.sh
-echo "Symlinking the .desktop file for change_charge_threshold.sh"
-ln -sf "${REPO_PATH}/utilities/desktop/change_charge_threshold.desktop" "${DESKTOP_PATH}/change_charge_threshold.desktop"
+REPO_PATH="/home/ridvikpal/github/scripts"
+APPLICATION_PATH="/home/ridvikpal/.local/share/applications"
 
 # install the desktop file for keep_gnome_awake.sh
 echo "Symlinking the .desktop file for keep_gnome_awake.sh"
-ln -sf "${REPO_PATH}/utilities/desktop/keep_gnome_awake.desktop" "${DESKTOP_PATH}/keep_gnome_awake.desktop"
+ln -sf "${REPO_PATH}/utilities/desktop/keep_gnome_awake.desktop" "${APPLICATION_PATH}/keep_gnome_awake.desktop"
+
+# install the desktop file for pc_to_ext_drive.sh
+echo "Symlinking the .desktop file for pc_to_ext_drive.sh"
+ln -sf "${REPO_PATH}/backup/desktop/pc_to_ext_drive.desktop" "${APPLICATION_PATH}/pc_to_ext_drive.desktop"
+
+# install the desktop file for phone_to_pc.sh
+echo "Symlinking the .desktop file for phone_to_pc.sh"
+ln -sf "${REPO_PATH}/backup/desktop/phone_to_pc.desktop" "${APPLICATION_PATH}/phone_to_pc.desktop"

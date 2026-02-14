@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ####################
-# This script is used to add custom user systemd unit files to a machine.
+# This script is used to add custom user-level systemd unit files to a machine.
 ####################
 
 # define reusable paths
