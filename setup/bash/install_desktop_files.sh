@@ -17,6 +17,10 @@ ln -sf "${REPO_PATH}/backup/desktop/pc_to_ext_drive.desktop" "${DESKTOP_PATH}/pc
 echo "Symlinking the .desktop file for phone_to_pc.sh"
 ln -sf "${REPO_PATH}/backup/desktop/phone_to_pc.desktop" "${DESKTOP_PATH}/phone_to_pc.desktop"
 
-# install the desktop file for phone_to_pc.sh
+# install the desktop file for change_charge_threshold.sh
 echo "Symlinking the .desktop file for change_charge_threshold.sh"
 ln -sf "${REPO_PATH}/utilities/desktop/change_charge_threshold.desktop" "${DESKTOP_PATH}/change_charge_threshold.desktop"
+
+# install the desktop file for keep_gnome_awake.sh
+echo "Symlinking the .desktop file for keep_gnome_awake.sh"
+ln -sf "${REPO_PATH}/utilities/desktop/keep_gnome_awake.desktop" "${DESKTOP_PATH}/keep_gnome_awake.desktop"

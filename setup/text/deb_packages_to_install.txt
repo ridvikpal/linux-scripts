@@ -1,23 +1,11 @@
-bolt
-fprintd libpam-fprintd
-blueman
-pipewire-audio
-gvfs gvfs-backends gvfs-fuse
 apt-file
 curl
-gammastep
-xdotool
-chromium
-gnome-disk-utility
 rsync
 default-jre
 git
 python3 python3-pip python3-venv
 gcc g++ gdb make
 libreoffice
-hunspell hunspell-en-us hunspell-en-ca hunspell-en-gb hunspell-en-au mythes-en-au mythes-en-us
 texlive texlive-latex-extra
 ffmpeg
 libheif-examples
-catfish
-flatpak
