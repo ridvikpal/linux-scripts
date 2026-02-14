@@ -9,3 +9,4 @@ libreoffice
 texlive texlive-latex-extra
 ffmpeg
 libheif-examples
+totem
