@@ -12,3 +12,5 @@ texlive texlive-latex-extra
 ffmpeg
 libheif-examples
 chromium
+snapd
+gnome-software-plugin-snap
