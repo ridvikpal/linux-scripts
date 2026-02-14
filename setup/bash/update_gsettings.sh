@@ -13,6 +13,10 @@ echo "Setting background to black"
 gsettings set org.gnome.desktop.background primary-color '#000000'
 gsettings set org.gnome.desktop.background picture-options 'none'
 
+# set the pointing stick acceleration to flat
+echo "Setting pointing stick acceleration to flat"
+gsettings set org.gnome.desktop.peripherals.pointingstick accel-profile 'flat'
+
 # disable conflicting VS Code copy line up/down keyboard shortcuts
 echo "Disabling move-to-workspace-up/down keyboard shortcuts"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up ['']
