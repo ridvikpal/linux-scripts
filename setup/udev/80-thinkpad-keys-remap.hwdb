@@ -1,0 +1,8 @@
+####################
+# This udev rule is used to remap F9-F11 thinkpad special keys
+####################
+
+evdev:name:ThinkPad Extra Buttons:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn*:*
+ KEYBOARD_KEY_4b=playpause
+ KEYBOARD_KEY_4c=previoussong
+ KEYBOARD_KEY_4d=nextsong
