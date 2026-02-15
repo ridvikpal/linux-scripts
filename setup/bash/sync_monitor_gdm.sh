@@ -3,7 +3,7 @@
 ####################
 # This script copies your GNOME Shell monitor configuration to
 # the gdm configuration folder on Debian
-# so that both monitor configurations (e.g., scaling) is synced
+# so that both monitor configurations (e.g., scaling) are synced
 #
 # If you're using another Linux distro, you can find your gdm config folder
 # via grep gdm /etc/passwd
