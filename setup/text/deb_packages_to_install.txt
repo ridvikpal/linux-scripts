@@ -3,7 +3,9 @@ curl
 rsync
 default-jre
 git
+gnome-core
 fonts-recommended
+chromium
 python3 python3-pip python3-venv
 gcc g++ gdb make
 libreoffice
@@ -11,6 +13,5 @@ hunspell hunspell-en-us hunspell-en-ca hunspell-en-gb hunspell-en-au mythes-en-a
 texlive texlive-latex-extra
 ffmpeg
 libheif-examples
-chromium
 snapd
 gnome-software-plugin-snap
