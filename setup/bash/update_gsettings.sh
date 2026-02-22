@@ -13,7 +13,7 @@ echo "Setting background to black"
 gsettings set org.gnome.desktop.background primary-color '#000000'
 gsettings set org.gnome.desktop.background picture-options 'none'
 
-# set the pointing stick acceleration to flat
+# set the pointing stick (e.g., ThinkPad TrackPoint) acceleration to flat
 echo "Setting pointing stick acceleration to flat"
 gsettings set org.gnome.desktop.peripherals.pointingstick accel-profile 'flat'
 
@@ -21,18 +21,6 @@ gsettings set org.gnome.desktop.peripherals.pointingstick accel-profile 'flat'
 echo "Disabling move-to-workspace-up/down keyboard shortcuts"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['']"
-
-# disable static media key support
-echo "Disabling static media keys support"
-gsettings set org.gnome.settings-daemon.plugins.media-keys play-static "['']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys next-static "['']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys previous-static "['']"
-
-# enable live media key support (useful for custom media key remapping via udev)
-echo "Enabling live media keys support"
-gsettings set org.gnome.settings-daemon.plugins.media-keys play "['XF86AudioPlay']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys next "['XF86AudioNext']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys previous "['XF86AudioPrev']"
 
 # change the volume step to 2 for better volume control via media keys
 echo "Setting volume step to 2"
