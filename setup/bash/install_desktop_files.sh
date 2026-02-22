@@ -13,6 +13,10 @@ DESKTOP_PATH="/home/ridvikpal/Desktop"
 echo "Symlinking the .desktop file for keep_gnome_awake.sh"
 ln -sf "${REPO_PATH}/utilities/desktop/keep_gnome_awake.desktop" "${DESKTOP_PATH}/keep_gnome_awake.desktop"
 
+# install the desktop file for change_charge_threshold.sh
+echo "Symlinking the .desktop file for change_charge_threshold.sh"
+ln -sf "${REPO_PATH}/utilities/desktop/change_charge_threshold.desktop" "${DESKTOP_PATH}/change_charge_threshold.desktop"
+
 # install the desktop file for pc_to_ext_drive.sh
 echo "Symlinking the .desktop file for pc_to_ext_drive.sh"
 ln -sf "${REPO_PATH}/backup/desktop/pc_to_ext_drive.desktop" "${DESKTOP_PATH}/pc_to_ext_drive.desktop"
