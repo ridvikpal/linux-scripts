@@ -7,3 +7,4 @@ libreoffice
 texlive texlive-latex-extra perl-tk
 ffmpeg
 libheif-examples
+vlc
