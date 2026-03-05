@@ -25,3 +25,7 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['']"
 # change the volume step to 2 for better volume control via media keys
 echo "Setting volume step to 2"
 gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step 2
+
+# enable the ability to resize windows with the right click
+echo "Enabling resizing windows with mouse right click"
+gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
